@@ -7,7 +7,8 @@ import requests
 import json
 import time
 import hashlib
-from flask import request
+import re
+from flask import request, redirect
 APP = flask.Flask(__name__)
 
 @APP.route('/')
@@ -17,12 +18,18 @@ def index():
 
 @APP.route('/pwn', methods=['POST'])
 def pwn():
-    i = 0
-    while i < 5:
-        refer = request.form['refer']
+    i = 1000000000
+    refer = request.form['refer']
+    position = int(request.form['position'])
+    email = request.form['email']
+    if email == "":
+        return redirect('/')
+    if position < 400:
+        return redirect('/')
+    while i > position:
         millis = int(round(time.time() * 1000))
         hashstring = str(millis) + refer
-        email = (hashlib.md5(hashstring.encode('utf-8')).hexdigest()) + '%40pwn.com'
+        newEmail = (hashlib.md5(hashstring.encode('utf-8')).hexdigest()) + '%40pwn.com'
     
         headers = {
             'Origin': 'https://www.getfinal.com',
@@ -36,12 +43,21 @@ def pwn():
             'Referer': 'https://www.getfinal.com/?ref=' + refer,
             'Connection': 'keep-alive',
         }
-        data = 'signup%5Bemail%5D=' + email + '&signup%5Bshare_hash%5D=' + refer + '&subscribe='
         
+        data = 'signup%5Bemail%5D=' + email + '&signup%5Bshare_hash%5D=&subscribe='
         r = requests.post('https://apply.getfinal.com/signups', headers=headers, data=data)
-        i += 1
+        m=re.compile("<span class='red'>(.*?)</span>", re.DOTALL).findall(r.text)
+        print m[0]
+        i = int(m[0])
+        data = 'signup%5Bemail%5D=' + newEmail + '&signup%5Bshare_hash%5D=' + refer + '&subscribe='
+        r = requests.post('https://apply.getfinal.com/signups', headers=headers, data=data)
+        
     return flask.render_template('pwned.html')
     
+    
+@APP.errorhandler(405)
+def page_not_found(error):
+    return redirect('/')
 if __name__ == '__main__':
     APP.debug=True
     APP.run(host=os.environ['IP'],port=int(os.environ['PORT']))
