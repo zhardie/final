@@ -9,7 +9,9 @@ import time
 import hashlib
 import re
 from flask import request, redirect
+from flask_sslify import SSLify
 APP = flask.Flask(__name__)
+sslify = SSLify(APP)
 
 @APP.route('/')
 def index():
@@ -61,4 +63,4 @@ def page_not_found(error):
     
 if __name__ == '__main__':
     APP.debug=True
-    APP.run(host=os.environ['IP'],port=int(os.environ['PORT']))
+    APP.run(host='0.0.0.0', port=80)
