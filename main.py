@@ -62,5 +62,5 @@ def page_not_found(error):
     return redirect('/')
     
 if __name__ == '__main__':
-    APP.debug=True
+    APP.debug=False
     APP.run(host='0.0.0.0', port=80)
