@@ -1,10 +1,28 @@
 <!DOCTYPE html>
 <html>
-<h1>Let's get you to the front of that line!</h1>
- <form name="input" action="/pwn" method="post">
-   My email address is: <input type="text" name="email" value="">
-   My referral code: <input type="text" name="refer" value="">
-   Get me below: <input type="number" name="position" value="12000">
-   <input type="submit" name="submit" value="Go!">
- </form>
+  <head>
+    <title>Final</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+  </head>  
+  <body>
+    <form name="input" action="/pwn" method="post">
+      <div class="form-header">
+        <img src="{{ url_for('static', filename='logo-final-card.svg') }}">
+        <h1>Let's get you to the front of that line!</h1>
+      </div>
+      
+      <input type="text" autofocus="true" 
+          placeholder="Your email address" 
+          class="form-field" 
+          name="email" 
+          value="">
+
+      <input type="text" placeholder="Your referral code" class="form-field" name="refer" value="">
+      
+      <input type="hidden" name="position" value="12000">
+      
+      <input type="submit" name="submit" class="btn" value="Go!">
+    </form>
+  </body>
 </html>

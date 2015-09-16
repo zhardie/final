@@ -1,0 +1,45 @@
+// Type settings should always be defined in type.less.
+// This allows us to easily look at and adjust type in our
+// application at a glance and prevent bugs arrising from
+// randomly placed type settings. Do not edit the type scale!
+// Only add application scoped type values.
+
+// Weight Scale (private vars)
+// --------------------------------------------------
+$fontWeight-1: 100;
+$fontWeight-2: 200;
+$fontWeight-3: 300;
+$fontWeight-4: 400;
+$fontWeight-5: 500;
+$fontWeight-6: 600;
+$fontWeight-7: 700;
+$fontWeight-8: 800;
+$fontWeight-9: 900;
+
+@mixin opensans {
+  font-family: 'Open Sans', sans-serif;
+  @include font-smoothing(antialiased);
+}
+@mixin opensans-n7 {
+  font-weight: 700;
+}
+
+// Applications
+// --------------------------------------------------
+@mixin type--body {
+  @include opensans;
+}
+@mixin type--form {
+  text-align: center;
+}
+@mixin type--h1 {
+  font-size: 15px;
+}
+@mixin type--form-field {
+  font-size: 14px;
+  text-align: center;
+}
+@mixin type--btn {
+  font-size: 14px;
+  @include opensans-n7;
+}

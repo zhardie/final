@@ -1,0 +1,42 @@
+// Color values should always be defined in colors.scss.
+// This allows us to easily change colors across the board.
+//
+// Color Scale (private vars,
+//               only use hex, rgb, or rgba values)
+
+$black:          #000;
+$grey-dark:      #333;
+$grey-c:         #ccc;
+$grey-f7:        #f7f7f7;
+$grey-e7:        #e7e7e7;
+$white:          #fff;
+
+$green:          #5cb85c;
+$green-over:     #449d44;
+$green-s:        #4cae4c;
+$green-s-over:   #398439;
+
+
+// Applications 
+// --------------------------------------------------
+
+$bg--body:              $grey-dark;
+
+// Forms
+$bg--form:              $grey-f7;
+$shadow--form:          $black; 
+
+$shadow--input-focus:   $grey-c;
+
+$bg--form-header:       $black;
+$color--form-header:    $white;
+
+$border--form-field:    $grey-e7;
+
+// Buttons
+$bg--btn:               $green;
+$color--btn:            $white;
+$border--btn:           $green-s;
+
+$bg--btn-hover:         $green-s;
+$border--btn-hover:     $green-s-over;
