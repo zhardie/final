@@ -1,0 +1,73 @@
+@import "globals/mixins";
+
+@import "scales/colors";
+@import "scales/type";
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  min-height: 100%;
+}
+body {
+  background: $bg--body;
+  @include type--body;
+}
+form {
+  margin: 70px auto;
+  padding: 0 15px 15px;
+  max-width: 350px;
+  background: $grey-f7;
+  overflow: hidden;
+  @include type--form;
+  @include border-radius(5px);
+  @include box-shadow(0 0 10px 0 $shadow--form);
+}
+h1 {
+  margin: 0 0 7px;
+  @include type--h1;
+}
+input:focus {
+  outline-width: 0;
+  @include box-shadow(0 0 3px 0 $shadow--input-focus);
+}
+.form-header {
+  margin: 0 -15px 15px;
+  padding: 10px 15px;
+  background: $bg--form-header;
+  color: $color--form-header;
+}
+.form-header img {
+  margin: 5px;
+  width: 100px;
+}
+.form-field {
+  display: block;
+  padding: 10px 15px;
+  border: 1px solid $border--form-field;
+  width: 100%;
+  @include type--form-field;
+  @include border-radius(3px);
+}
+.form-field + .form-field {
+  margin-top: 7px;
+}
+.btn {
+  display: block;
+  margin-top: 7px;
+  padding: 10px;
+  width: 100%;
+  border: 1px solid $border--btn; 
+  background: $bg--btn;
+  color: $color--btn;
+  cursor: pointer;
+  @include type--btn;
+  @include border-radius(3px);
+}
+.btn:hover,
+.btn:focus,
+.btn:active {
+  background-color: $bg--btn-hover; 
+  border-color: $border--btn-hover; 
+}

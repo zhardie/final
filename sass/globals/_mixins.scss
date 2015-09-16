@@ -1,0 +1,15 @@
+@mixin border-radius($param) {
+  -webkit-border-radius: $param;
+     -moz-border-radius: $param;
+      -ie-border-radius: $param;
+       -o-border-radius: $param;
+          border-radius: $param;
+}
+@mixin box-shadow($param) {
+  -webkit-box-shadow: $param;
+     -moz-box-shadow: $param;
+          box-shadow: $param;
+}
+@mixin font-smoothing($param) {
+  -webkit-font-smoothing: $param;
+}
