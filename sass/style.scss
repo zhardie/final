@@ -37,10 +37,10 @@ input:focus {
   padding: 10px 15px;
   background: $bg--form-header;
   color: $color--form-header;
-}
-.form-header img {
-  margin: 5px;
-  width: 100px;
+  img {
+    margin: 5px;
+    width: 100px;
+  }
 }
 .form-field {
   display: block;
@@ -49,9 +49,9 @@ input:focus {
   width: 100%;
   @include type--form-field;
   @include border-radius(3px);
-}
-.form-field + .form-field {
-  margin-top: 7px;
+  & + .form-field {
+    margin-top: 7px;
+  }
 }
 .btn {
   display: block;
@@ -64,10 +64,10 @@ input:focus {
   cursor: pointer;
   @include type--btn;
   @include border-radius(3px);
-}
-.btn:hover,
-.btn:focus,
-.btn:active {
-  background-color: $bg--btn-hover; 
-  border-color: $border--btn-hover; 
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $bg--btn-hover; 
+    border-color: $border--btn-hover; 
+  }
 }
