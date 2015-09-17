@@ -13,6 +13,7 @@ from flask_sslify import SSLify
 APP = flask.Flask(__name__)
 sslify = SSLify(APP)
 
+
 @APP.route('/')
 def index():
     return flask.render_template('index.html')
@@ -21,11 +22,9 @@ def index():
 def pwn():
     i = 1000000000
     refer = request.form['refer']
-    position = int(request.form['position'])
+    position = 400
     email = request.form['email']
     if email == "":
-        return redirect('/')
-    if position < 400:
         return redirect('/')
         
     while i > position:
